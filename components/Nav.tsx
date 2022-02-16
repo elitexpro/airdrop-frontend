@@ -22,11 +22,7 @@ function Nav() {
         <div className="flex items-center">
           <Link href="/">
             <a className="text-2xl">
-              {/* {PUBLIC_SITE_ICON_URL.length > 0 ? (
-                <Image src={PUBLIC_SITE_ICON_URL} alt="logo" height={32} width={32} />
-              ) : (
-                <Emoji label="poodle" symbol="🐩" />
-              )} */}
+              
             </a>
           </Link>
           <Link href="/">

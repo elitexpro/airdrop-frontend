@@ -14,6 +14,7 @@ let { Provider } = (CosmWasmContext =
     error: null,
     connectWallet: () => {},
     disconnect: () => {},
+    getMerkleProof:(val:number) => {}
   }))
 
 export const useSigningClient = (): ISigningCosmWasmClientContext =>

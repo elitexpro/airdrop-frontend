@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { connectKeplr } from 'services/keplr'
 import { SigningCosmWasmClient, CosmWasmClient } from '@cosmjs/cosmwasm-stargate'
+import {Command, flags} from '@oclif/command'
+import {Airdrop} from '../util/merkle-airdrop-cli/airdrop'
+import {voters} from 'proposal.json'
 
 export interface ISigningCosmWasmClientContext {
   walletAddress: string
@@ -9,7 +12,8 @@ export interface ISigningCosmWasmClientContext {
   loading: boolean
   error: any
   connectWallet: any
-  disconnect: Function
+  disconnect: Function,
+  getMerkleProof: Function  
 }
 
 const PUBLIC_RPC_ENDPOINT = process.env.NEXT_PUBLIC_CHAIN_RPC_ENDPOINT || ''
@@ -55,7 +59,7 @@ export const useSigningCosmWasmClient = (): ISigningCosmWasmClientContext => {
       setWalletAddress(address)
 
       setLoading(false)
-    } catch (error) {
+    } catch (error:any) {
       setError(error)
     }
   }
@@ -69,6 +73,34 @@ export const useSigningCosmWasmClient = (): ISigningCosmWasmClientContext => {
     setLoading(false)
   }
 
+  const getMerkleProof = async (val:number) => {
+    let ret:Array<Object> = []
+    setLoading(true)
+    if (walletAddress == '') {
+      setLoading(false)
+      return ret
+    }
+    
+    // let file;
+    // try {
+    //   file = readFileSync(PROPOSAL_FILE, "utf8")
+    // } catch (e) {
+    //   setLoading(false)
+    //   console.log(e.toString())
+    //   setError(e)
+    //   return ret
+    // }
+
+    // let receivers: Array<{ address: string; amount: string }> = JSON.parse(file);
+    // console.log(voters)
+    let receivers: Array<{ address: string; amount: string }> = voters
+    let airdrop = new Airdrop(receivers)
+    let proof = airdrop.getMerkleProof({address: walletAddress, amount: val.toString()})
+    setLoading(false)
+    return proof
+    
+  }
+
   return {
     walletAddress,
     signingClient,
@@ -76,6 +108,7 @@ export const useSigningCosmWasmClient = (): ISigningCosmWasmClientContext => {
     error,
     connectWallet,
     disconnect,
+    getMerkleProof,
     client
   }
 }

@@ -25,7 +25,6 @@ export default function Layout({ children }: { children: ReactNode }) {
           Juno
         </a>
         &nbsp;
-        <Emoji label="dog2" symbol="🐕" />
       </footer>
     </div>
   )

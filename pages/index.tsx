@@ -9,24 +9,25 @@ import {
 } from 'util/conversion'
 import { coin } from '@cosmjs/launchpad'
 import { useAlert } from 'react-alert'
-import Emoji from 'components/Emoji'
 
 const PUBLIC_STAKING_DENOM = process.env.NEXT_PUBLIC_STAKING_DENOM || 'ujuno'
-const PUBLIC_TOKEN_SALE_CONTRACT = process.env.NEXT_PUBLIC_TOKEN_SALE_CONTRACT || ''
+const PUBLIC_AIRDROP_CONTRACT = process.env.NEXT_PUBLIC_AIRDROP_CONTRACT || ''
 const PUBLIC_CW20_CONTRACT = process.env.NEXT_PUBLIC_CW20_CONTRACT || ''
+const AIRDROP_AMOUNT = process.env.NEXT_PUBLIC_AIRDROP_AMOUNT
 
 const Home: NextPage = () => {
-  const { walletAddress, signingClient, connectWallet } = useSigningClient()
+  const { walletAddress, signingClient, connectWallet, getMerkleProof } = useSigningClient()
   const [balance, setBalance] = useState('')
   const [cw20Balance, setCw20Balance] = useState('')
   const [walletAmount, setWalletAmount] = useState(0)
   const [loadedAt, setLoadedAt] = useState(new Date())
   const [loading, setLoading] = useState(false)
   const [tokenInfo, setTokenInfo] = useState({ name: '', symbol: '' })
-  const [purchaseAmount, setPurchaseAmount] = useState<any>('')
   const [numToken, setNumToken] = useState(0)
   const [price, setPrice] = useState(0)
   const [showNumToken, setShowNumToken] = useState(false)
+  const [merkleProof, setMerkleProof] = useState([])
+
   const alert = useAlert()
 
   useEffect(() => {
@@ -61,49 +62,54 @@ const Home: NextPage = () => {
       token_info: {},
     }).then((response) => {
       setTokenInfo(response)
+      
     }).catch((error) => {
       alert.error(`Error! ${error.message}`)
       console.log('Error signingClient.queryContractSmart() token_info: ', error)
     })
   }, [signingClient, alert])
 
+  useEffect(() => {
+    if (!signingClient || walletAddress.length === 0) return
+    getMerkleProof(AIRDROP_AMOUNT).then((response:[]) => {
+      console.log(response)
+      setMerkleProof(response)
+    }).catch((error:any) => {
+      console.log(error)
+      alert.error('Failed to get proof')
+    })
+
+  }, [signingClient, walletAddress])
+
+
   /**
    * Calculates and sets the number of tokens given the purchase amount divided by the price
    */
-   useEffect(() => {
-    if (!signingClient) return
+  //  useEffect(() => {
+  //   if (!signingClient) return
 
-    signingClient.queryContractSmart(PUBLIC_TOKEN_SALE_CONTRACT, {
-      get_info: {},
-    }).then((response) => {
-      const price  = convertMicroDenomToDenom(response.price.amount)
-      console.log("price : " + price) // i.e. 1 POOD token = 1000 uJUNO (micro)
-      setPrice(price)
-      setNumToken(purchaseAmount/price)
-    }).catch((error) => {
-      alert.error(`Error! ${error.message}`)
-      console.log('Error signingClient.queryContractSmart() get_info: ', error)
-    })
+  //   signingClient.queryContractSmart(PUBLIC_AIRDROP_CONTRACT, {
+  //     get_info: {},
+  //   }).then((response) => {
+  //     const price  = convertMicroDenomToDenom(response.price.amount)
+  //     console.log("price : " + price) // i.e. 1 POOD token = 1000 uJUNO (micro)
+  //     setPrice(price)
+  //     setNumToken(purchaseAmount/price)
+  //   }).catch((error) => {
+  //     alert.error(`Error! ${error.message}`)
+  //     console.log('Error signingClient.queryContractSmart() get_info: ', error)
+  //   })
 
-    setShowNumToken(!!purchaseAmount)
-  }, [purchaseAmount, signingClient, alert])
+  //   setShowNumToken(!!purchaseAmount)
+  // }, [purchaseAmount, signingClient, alert])
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { target: { value } } = event
-    setPurchaseAmount(value)
   }
 
-  const handlePurchase = (event: MouseEvent<HTMLElement>) => {
+  const handleAirdrop = (event: MouseEvent<HTMLElement>) => {
     if (!signingClient || walletAddress.length === 0) return
-    if (!purchaseAmount) {
-      alert.error('Please enter the amount you would like to purchase')
-      return
-    }
-    if (purchaseAmount > walletAmount) {
-      alert.error(`You do not have enough tokens to make this purchase, maximum you can spend is ${walletAmount}`)
-      return
-    }
-
+    
     event.preventDefault()
     setLoading(true)
     const defaultFee = {
@@ -113,19 +119,19 @@ const Home: NextPage = () => {
 
     signingClient?.execute(
       walletAddress, // sender address
-      PUBLIC_TOKEN_SALE_CONTRACT, // token sale contract
-      { "buy": {
-        "denom": "ujunox",
-        "price": "100"
+      PUBLIC_AIRDROP_CONTRACT, // token sale contract
+      { "claim": {
+        "stage": 1,
+        "amount": `${AIRDROP_AMOUNT}`,
+        "proof": merkleProof
       } }, // msg
       defaultFee,
       undefined,
-      [coin(parseInt(convertDenomToMicroDenom(purchaseAmount), 10), 'ujunox')]
+      []
     ).then((response) => {
-      setPurchaseAmount('')
       setLoadedAt(new Date())
       setLoading(false)
-      alert.success('Successfully purchased!')
+      alert.success('Successfully airdropped!')
     }).catch((error) => {
       setLoading(false)
       alert.error(`Error! ${error.message}`)
@@ -138,43 +144,35 @@ const Home: NextPage = () => {
       {balance && (
         <p className="text-primary">
           <span>{`Your wallet has ${balance} `}</span>
-          <Emoji label="dog2" symbol="🐕" />
         </p>
       )}
 
       {cw20Balance && (
         <p className="mt-2 text-primary">
           <span>{`and ${cw20Balance} ${tokenInfo.symbol} `}</span>
-          <Emoji label="poodle" symbol="🐩" />
         </p>
       )}
 
-      <h1 className="mt-10 text-5xl font-bold">
-        Buy
-      </h1>
-      <h1 className="mt-4 mb-10 text-5xl font-bold">
-        <Emoji label="dog" symbol="🐶" />
+      {/* <h1 className="mt-10 text-5xl font-bold">
+        Airdrop
         <span>{` ${tokenInfo.name} `}</span>
-        <Emoji label="dog" symbol="🐶" />
-      </h1>
+      </h1> */}
 
       <div className="form-control">
         <div className="relative">
-          <input
-            type="number"
-            id="purchase-amount"
-            placeholder="Amount"
-            step="0.1"
-            className="w-full input input-lg input-primary input-bordered font-mono"
-            onChange={handleChange}
-            value={purchaseAmount}
-            style={{ paddingRight: '10rem' }}
-          /> 
-          <button
-            className="absolute top-0 right-0 rounded-l-none btn btn-lg btn-primary"
-            onClick={handlePurchase}
+          
+          {/* <button
+            className="absolute rounded-l-none btn btn-lg btn-primary"
+            onClick={handleAirdrop}
           >
-            purchase
+            Get Airdrop
+          </button> */}
+
+          <button
+            className="block btn btn-outline btn-primary w-full max-w-full truncate"
+            onClick={handleAirdrop}
+          >
+            Get AirDrop
           </button>
         </div>
       </div>
@@ -184,7 +182,6 @@ const Home: NextPage = () => {
           You are getting
           <h1 className="text-3xl mt-3 text-primary">
             <span>{`${numToken} ${tokenInfo.symbol} `}</span>
-            <Emoji label="poodle" symbol="🐩" />
           </h1>
         </div>
       )}
