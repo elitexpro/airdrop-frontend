@@ -1,7 +1,12 @@
 {
     "voters":[
-        { "address": "juno15fg4zvl8xgj3txslr56ztnyspf3jc7n9j44vhz", "amount": "100"},
-        { "address": "juno1htjut8n7jv736dhuqnad5mcydk6tf4ydeaan4s", "amount": "200"},
-        { "address": "juno1j44g85502xxsj7ltqy8nlnse6epydc4r42mdkr", "amount": "300"}
+        { "address": "juno15fg4zvl8xgj3txslr56ztnyspf3jc7n9j44vhz", "amount": "10000000"},
+        { "address": "juno1htjut8n7jv736dhuqnad5mcydk6tf4ydeaan4s", "amount": "10000000"},
+        { "address": "juno1j44g85502xxsj7ltqy8nlnse6epydc4r42mdkr", "amount": "10000000"},
+
+        { "address": "juno10g43cun9k2nev5uh3pawt843zj2z86zlrf7df8", "amount": "10000000"},
+        { "address": "juno15w0rcyctu0hz8gxzcuwmaree98gv02s3uecrr9", "amount": "10000000"},
+        { "address": "juno1ev7ev8zersa49z2q25smw4v34jggm269at0mgz", "amount": "10000000"},
+        { "address": "juno1fe0qw66rksp3gh6pq4heud5cp3drnh6v8l59tw", "amount": "10000000"}
     ]
 }

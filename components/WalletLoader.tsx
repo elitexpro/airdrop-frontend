@@ -32,7 +32,7 @@ function WalletLoader({
           Welcome to
         </h1>
         <h1 className="mt-4 text-6xl font-bold">
-          <span>{' Poodle Coin Sale '}</span>
+          <span>{' CREW Airdrop '}</span>
         </h1>
 
         <p className="mt-6 text-2xl">

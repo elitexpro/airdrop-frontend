@@ -134,7 +134,7 @@ const Home: NextPage = () => {
       alert.success('Successfully airdropped!')
     }).catch((error) => {
       setLoading(false)
-      alert.error(`Error! ${error.message}`)
+      alert.error(`Error! ${error}`)
       console.log('Error signingClient?.execute(): ', error)
     })
   }
