@@ -28,7 +28,9 @@ const Home: NextPage = () => {
   const [showNumToken, setShowNumToken] = useState(false)
   const [merkleProof, setMerkleProof] = useState([])
 
+
   const [airdropAmount, setAirdropAmount] = useState(0)
+  const [isClaimed, setIsClaimed] = useState(false)
   const alert = useAlert()
 
   useEffect(() => {
@@ -78,6 +80,8 @@ const Home: NextPage = () => {
       alert.error(`Error! ${error.message}`)
       console.log('Error signingClient.queryContractSmart() token_info: ', error)
     })
+
+    
   }, [signingClient, alert])
 
   useEffect(() => {
@@ -92,6 +96,23 @@ const Home: NextPage = () => {
       console.log(error)
       alert.error('Failed to get proof')
     })
+
+    signingClient.queryContractSmart(PUBLIC_AIRDROP_CONTRACT, {
+      is_claimed: {
+        stage: 1,
+        address: walletAddress
+      },
+    }).then((response) => {
+      setIsClaimed(response.is_claimed)
+      console.log(response.is_claimed)
+      
+    }).catch((error) => {
+      alert.error(`Error! ${error.message}`)
+      console.log('Error signingClient.queryContractSmart() is_claimed: ', error)
+    })
+
+    
+
 
   }, [signingClient, walletAddress, airdropAmount])
 
@@ -124,6 +145,10 @@ const Home: NextPage = () => {
   const handleAirdrop = (event: MouseEvent<HTMLElement>) => {
     if (!signingClient || walletAddress.length === 0) return
     
+    if (isClaimed) {
+      alert.success('Already airdropped!')
+      return
+    }
     event.preventDefault()
     setLoading(true)
     const defaultFee = {
