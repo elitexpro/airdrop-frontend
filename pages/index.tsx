@@ -40,7 +40,7 @@ const Home: NextPage = () => {
       // console.log(rec.address + " : " + walletAddress)
       if (rec.address == walletAddress) {
         // console.log("this wallet amount : " + rec.amount)
-        setAirdropAmount(rec.amount)
+        setAirdropAmount(parseInt(rec.amount))
       }
     });
 
