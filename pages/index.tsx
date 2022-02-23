@@ -9,11 +9,11 @@ import {
 } from 'util/conversion'
 import { coin } from '@cosmjs/launchpad'
 import { useAlert } from 'react-alert'
+import {voters} from 'proposal.json'
 
 const PUBLIC_STAKING_DENOM = process.env.NEXT_PUBLIC_STAKING_DENOM || 'ujuno'
 const PUBLIC_AIRDROP_CONTRACT = process.env.NEXT_PUBLIC_AIRDROP_CONTRACT || ''
 const PUBLIC_CW20_CONTRACT = process.env.NEXT_PUBLIC_CW20_CONTRACT || ''
-const AIRDROP_AMOUNT = process.env.NEXT_PUBLIC_AIRDROP_AMOUNT
 
 const Home: NextPage = () => {
   const { walletAddress, signingClient, connectWallet, getMerkleProof } = useSigningClient()
@@ -28,10 +28,21 @@ const Home: NextPage = () => {
   const [showNumToken, setShowNumToken] = useState(false)
   const [merkleProof, setMerkleProof] = useState([])
 
+  const [airdropAmount, setAirdropAmount] = useState(0)
   const alert = useAlert()
 
   useEffect(() => {
     if (!signingClient || walletAddress.length === 0) return
+
+   
+    // console.log(voters)
+    voters.forEach((rec) => {
+      // console.log(rec.address + " : " + walletAddress)
+      if (rec.address == walletAddress) {
+        // console.log("this wallet amount : " + rec.amount)
+        setAirdropAmount(rec.amount)
+      }
+    });
 
     // Gets native balance (i.e. Juno balance)
     signingClient.getBalance(walletAddress, PUBLIC_STAKING_DENOM).then((response: any) => {
@@ -71,15 +82,18 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (!signingClient || walletAddress.length === 0) return
-    getMerkleProof(AIRDROP_AMOUNT).then((response:[]) => {
-      console.log(response)
+
+    
+    getMerkleProof(airdropAmount).then((response:[]) => {
+      // console.log("proof string")
+      // console.log(response)
       setMerkleProof(response)
     }).catch((error:any) => {
       console.log(error)
       alert.error('Failed to get proof')
     })
 
-  }, [signingClient, walletAddress])
+  }, [signingClient, walletAddress, airdropAmount])
 
 
   /**
@@ -122,7 +136,7 @@ const Home: NextPage = () => {
       PUBLIC_AIRDROP_CONTRACT, // token sale contract
       { "claim": {
         "stage": 1,
-        "amount": `${AIRDROP_AMOUNT}`,
+        "amount": `${airdropAmount}`,
         "proof": merkleProof
       } }, // msg
       defaultFee,
@@ -153,10 +167,10 @@ const Home: NextPage = () => {
         </p>
       )}
 
-      {/* <h1 className="mt-10 text-5xl font-bold">
-        Airdrop
-        <span>{` ${tokenInfo.name} `}</span>
-      </h1> */}
+      <h1 className="mt-10 text-5xl font-bold">
+        Your airdrop amount
+        <span>{` ${airdropAmount} `}</span>
+      </h1>
 
       <div className="form-control">
         <div className="relative">
