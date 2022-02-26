@@ -1,10 +1,6 @@
 {
     "voters":[
         {
-            "address": "juno1ddcvnnq0puupr0f3cyq77ffmk32ylaxcd3ahjg",
-            "amount": "1050"
-        },
-        {
             "address": "juno1qqrnzytacq9gah4a8697lfr45wkmrzmpc2nw0l",
             "amount": "1050"
         },
@@ -22981,10 +22977,6 @@
             "amount": "850"
         },
         {
-            "address": "juno10p4wfu4scphw4v6hj60h9w79g89rxfyrhdt0he",
-            "amount": "1050"
-        },
-        {
             "address": "juno1g84d0lk5584wtjsqeh0mlu6aakm5vuj34khndz",
             "amount": "950"
         },
@@ -24345,10 +24337,6 @@
             "amount": "950"
         },
         {
-            "address": "juno1efsfhun3n0023f0uy22qesv200zr5j92lhvjts",
-            "amount": "950"
-        },
-        {
             "address": "juno1ghy8rn6xj3un6cwlsggxjjl7fn5fxw4qpukzgt",
             "amount": "950"
         },
@@ -25409,10 +25397,6 @@
             "amount": "750"
         },
         {
-            "address": "juno10rt630ftpkmf2wa475vw04k9dmzp9jzw2ajnwx",
-            "amount": "950"
-        },
-        {
             "address": "juno1frfkymtm9axkdu4fhnl695redq3cujpwccmc82",
             "amount": "950"
         },
@@ -25911,10 +25895,6 @@
         {
             "address": "juno1f2rug4vtt3thkgmrrdxdsm64sfuzjrhwuk8vfg",
             "amount": "750"
-        },
-        {
-            "address": "juno1c7kz844hmwac9j5utd4lav6wpvtn8qxyr4grjn",
-            "amount": "1250"
         },
         {
             "address": "juno1f2yuhrhjtwdgynu4r6krwj6qja43zd0fneajwd",
@@ -27497,10 +27477,6 @@
             "amount": "750"
         },
         {
-            "address": "juno1yfsmpwkx8m34x4znz8amp0drk38yz79v30ex8y",
-            "amount": "1050"
-        },
-        {
             "address": "juno1f6ew7q5ymalwk38asvl4335x48dfzf7m46vldx",
             "amount": "950"
         },
@@ -27615,10 +27591,6 @@
         {
             "address": "juno1fmm5sezclltdqfzcje8tl0hgyxhy96mf559l8c",
             "amount": "750"
-        },
-        {
-            "address": "juno1muqmjlfj7dgsrc0435eea48m58cupnc0jgrlv0",
-            "amount": "1250"
         },
         {
             "address": "juno1fmmkme8sa5a9lvf5z4dqv8slk7je26cpmsun2y",
@@ -29337,10 +29309,6 @@
             "amount": "950"
         },
         {
-            "address": "juno1kf0y355hm9pdxr90qnaw5arc9kyrm599dujw28",
-            "amount": "1150"
-        },
-        {
             "address": "juno12whsjepvlvjjle7aq4cn59720cw06a4yu5p5j7",
             "amount": "850"
         },
@@ -29461,10 +29429,6 @@
             "amount": "1050"
         },
         {
-            "address": "juno1p82vd2s5ztzl7ckah96cxn92yqtgynnk68tyj8",
-            "amount": "950"
-        },
-        {
             "address": "juno1206mghh7a4ha8w2jputtj7xaflrplaagyjcfkd",
             "amount": "1050"
         },
@@ -29475,10 +29439,6 @@
         {
             "address": "juno120uw04qy99q748tuh0u39k33r2xrnelys6g799",
             "amount": "950"
-        },
-        {
-            "address": "juno1a2hp0wtzrjy82a25fg6f47lcvvn24teh092m4v",
-            "amount": "1150"
         },
         {
             "address": "juno120u45fn44dgpf3zqdragxjwfvazj8rcgjvju30",
@@ -32797,10 +32757,6 @@
             "amount": "750"
         },
         {
-            "address": "juno13vtplpcgc2na62w0f62kkk6zkewrm6xf8qda7e",
-            "amount": "950"
-        },
-        {
             "address": "juno1thpk9pnm3uwer085u7pak3du2syheg4ydvh2cp",
             "amount": "950"
         },
@@ -33143,10 +33099,6 @@
         {
             "address": "juno1t6uyaw4twwcy96lsdwuxm7jl7qr37mapx0en9h",
             "amount": "950"
-        },
-        {
-            "address": "juno1g8ym63e4khp293umtu9enekn0qg05xy2lmpu7c",
-            "amount": "1150"
         },
         {
             "address": "juno1tmp99hgqux43a3hnr29k3kaks4stjd58qyy30n",
@@ -33647,10 +33599,6 @@
         {
             "address": "juno1vprfyt0vp9axdwrfd9p2570vxmg6rzuj5pckq7",
             "amount": "1050"
-        },
-        {
-            "address": "juno12tzs72ehzz6e88230je0yuhvvjuzvqxzq0379e",
-            "amount": "950"
         },
         {
             "address": "juno1vpr3svzk9k99vy44evf2c9qvu5xqesecxfa7zw",
@@ -35035,10 +34983,6 @@
         {
             "address": "juno1vsjx50urerdrlma3vp7zje49r0gpknf7hmy9z4",
             "amount": "750"
-        },
-        {
-            "address": "juno19usfw8vj39tvu9mclth8549tvuanx7c5ye89uy",
-            "amount": "950"
         },
         {
             "address": "juno1vs5n793wc3rr4gm3vn8jct9c8cefravelw58f2",
@@ -36901,10 +36845,6 @@
             "amount": "750"
         },
         {
-            "address": "juno1efupkzxdnahqhlars7l5a8zg3esex9avmur4fa",
-            "amount": "1050"
-        },
-        {
             "address": "juno1d903k8uquk27lkdr9848jalgfqqgmc8pqceqd6",
             "amount": "950"
         },
@@ -38503,10 +38443,6 @@
         {
             "address": "juno1dkeqd3v9r2aqvu44c3af9n0qm4lvjdeycea6yr",
             "amount": "950"
-        },
-        {
-            "address": "juno1jc68vsu6003nuer3q2xat2trvxg39fsus7nssd",
-            "amount": "1050"
         },
         {
             "address": "juno1dkelj4cqgd64z0g6qu7w6vnk9pvht443klgqlv",
@@ -41515,10 +41451,6 @@
         {
             "address": "juno1wkansu8420k00n34h6cxjlejr8fejy89cuk49f",
             "amount": "950"
-        },
-        {
-            "address": "juno1zz4u42srmgef0v6usk3d26yw4kfyejdfvvq37c",
-            "amount": "1250"
         },
         {
             "address": "juno1wkacj7typg5gc757jf5rxlg5nalfdn0wnsqvhh",
@@ -46101,10 +46033,6 @@
             "amount": "950"
         },
         {
-            "address": "juno1cwmxvwqyxtkhea0c8mm7p2nmn47jqqrxel63ru",
-            "amount": "1150"
-        },
-        {
             "address": "juno1sdr0whv4wyazyg9a4wru527rvscm5jt7zlfx5k",
             "amount": "750"
         },
@@ -49749,10 +49677,6 @@
             "amount": "950"
         },
         {
-            "address": "juno1sjm46smz3wrm29lucjef6fxay34mjky2v2dhd3",
-            "amount": "1050"
-        },
-        {
             "address": "juno1340m53ejdqt7glfrl8nh0fnxchzxm5w2ywm88p",
             "amount": "750"
         },
@@ -50103,10 +50027,6 @@
         {
             "address": "juno13c7ym5hxl7ayzu0y9t6npx2730rrsdg9h40e2p",
             "amount": "750"
-        },
-        {
-            "address": "juno10yjkzqxctzrz8sa5hfzpt4hjxvwas3uzysgcwa",
-            "amount": "1150"
         },
         {
             "address": "juno13ezy7a6gaqcpgzx5tqe89shrwwlqrd8dxwle9q",
@@ -51698,10 +51618,6 @@
         },
         {
             "address": "juno1jtkyrjep0lkey5wc9h7jx8knnfpvfs2tqfl00p",
-            "amount": "950"
-        },
-        {
-            "address": "juno1ham4phncvlz6l5kf9588ll9n5kfd8hqe5vcuhs",
             "amount": "950"
         },
         {
@@ -53513,10 +53429,6 @@
             "amount": "1050"
         },
         {
-            "address": "juno1j6sna2pnjy36f9y5jqlfd9n59hn0usxw446235",
-            "amount": "950"
-        },
-        {
             "address": "juno1np4a5vzwn4uk638q2vlqgrrcs6mpsgv7jd74ah",
             "amount": "850"
         },
@@ -53954,10 +53866,6 @@
         },
         {
             "address": "juno1n8j9xve22sh5arf2kfdtdde46udztadapjn4fy",
-            "amount": "950"
-        },
-        {
-            "address": "juno1swej0xd0q7zakklmpalmc6a748h9ydvz8szedt",
             "amount": "950"
         },
         {
@@ -55231,10 +55139,6 @@
         {
             "address": "juno1nksscrcjan0mp7czwwwunqvaadv3gpvzpgzwn7",
             "amount": "850"
-        },
-        {
-            "address": "juno150h9h39qwng4rrs7jxp6847nyxepl4sv4asdcz",
-            "amount": "1050"
         },
         {
             "address": "juno1nkskzecenlwzgvv6xa8dzmh8v04jvatw82sdv3",
@@ -57029,10 +56933,6 @@
             "amount": "750"
         },
         {
-            "address": "juno1lfmc02nrsncazj6paw2rnalv6eh452xrn63tmx",
-            "amount": "1150"
-        },
-        {
             "address": "juno1527vs3d7xf9zj7hcfg8s05r8gscsakq6rh7eqg",
             "amount": "850"
         },
@@ -58409,10 +58309,6 @@
             "amount": "850"
         },
         {
-            "address": "juno1erdj5eg83f6ycvyzqlwlx4sl2zvxe7nt5x25dk",
-            "amount": "1150"
-        },
-        {
             "address": "juno15ewj2hclx46gywm8j0wmelcmqfddflf5gkxuxg",
             "amount": "950"
         },
@@ -59465,10 +59361,6 @@
             "amount": "1050"
         },
         {
-            "address": "juno154jcf2ggdtm0l8q0fvmfvvd9hflqmxym4qz7qx",
-            "amount": "950"
-        },
-        {
             "address": "juno14y59mu86g6tfrjk75xe3h5h3nnr60nleaup29p",
             "amount": "950"
         },
@@ -59574,10 +59466,6 @@
         },
         {
             "address": "juno149sxlqu0uwlay28xlu9nz60auqt7n92ee4gt7m",
-            "amount": "1050"
-        },
-        {
-            "address": "juno1tuspcugnd9zmvj0g2zedyrpjs9qf8j0q5jls22",
             "amount": "1050"
         },
         {
@@ -61163,10 +61051,6 @@
         {
             "address": "juno14k6cvka848s62sx8rup5zmdh80lza88zan9car",
             "amount": "950"
-        },
-        {
-            "address": "juno1ntwx4qldvhhncv42g8ye7pn90gtv47utjm2xn4",
-            "amount": "1250"
         },
         {
             "address": "juno14kms5vhjexmqmk0un4xjdfy58fq8ez3gve2l52",
@@ -63045,10 +62929,6 @@
             "amount": "950"
         },
         {
-            "address": "juno1rjwe4ks6dmfmvpky6m6p7swlzj52upr50lz4y9",
-            "amount": "1150"
-        },
-        {
             "address": "juno1ktsjyqvpmvssn4umhg8rhy02dk4j0zedueqkes",
             "amount": "950"
         },
@@ -63431,10 +63311,6 @@
         {
             "address": "juno1k0anvfqhceh4clhjrvvfzmcdltj6y2q9zqu0hz",
             "amount": "950"
-        },
-        {
-            "address": "juno158twaqm6xp484a607txl6rvn4jla0k29ykk7s8",
-            "amount": "1250"
         },
         {
             "address": "juno1k0lv87rmzdzkj3farmxd9qp7uv666uvr4hekw4",
@@ -65765,10 +65641,6 @@
             "amount": "950"
         },
         {
-            "address": "juno15nfj2lankr45d6pwxx8mgul9s57989rvqdcndd",
-            "amount": "1150"
-        },
-        {
             "address": "juno1hgaxu7d5ukzgq3krr2tap45rfllex3fze3s8lr",
             "amount": "750"
         },
@@ -66231,10 +66103,6 @@
         {
             "address": "juno1hw5l9h6knrcze2ccfnrajs8nfwxt086qa2zm0m",
             "amount": "950"
-        },
-        {
-            "address": "juno1cu8amq85qwdrtyd0f6x77lkahxq62yw0wyjg5z",
-            "amount": "1250"
         },
         {
             "address": "juno1hw40n4t8w60qs2hwj48nz6pq73mvsqr6nha53c",
