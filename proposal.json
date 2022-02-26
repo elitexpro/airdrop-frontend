@@ -1,6 +1,10 @@
 {
     "voters":[
         {
+            "address": "juno1ddcvnnq0puupr0f3cyq77ffmk32ylaxcd3ahjg",
+            "amount": "1050"
+        },
+        {
             "address": "juno1qqrnzytacq9gah4a8697lfr45wkmrzmpc2nw0l",
             "amount": "1050"
         },
